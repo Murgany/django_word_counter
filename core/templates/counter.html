@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>Counter Result</title>{% endblock title %}
+
+{% block content %}
+<!-- Word  counter result page-->
+<div class="container">
+    <form id="form">
+        <div class="textarea ">
+            <p style="margin-left: 10px;" class="text-size">Counter Result</p>
+            <p style="margin-left: 10px" class="text-size">Total words: <strong>{{word_count}}</strong></p>
+        </div>
+        <button type="submit">
+            <a href="{% url 'index' %}" style="text-decoration: none; color: #333" class="text-size">
+                Back
+            </a>
+        </button>
+    </form>
+</div>
+
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
+
+{% endblock content %}

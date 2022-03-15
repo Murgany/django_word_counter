@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    {% block title %}<title>Word Counter</title>{% endblock title %}
+</head>
+
+<body>
+
+{% block content %}
+
+{% block counter %}
+<div class="container">
+
+    <form method="POST" action="counter" id="form">
+        <h1 class="content-box">YOUR ULTIMATE WORD COUNTER</h1>
+        {% csrf_token %}
+        <textarea
+                class="textarea text-size"
+                name="text" rows="12"
+                placeholder="Paste your text here"
+        ></textarea>
+        <button type="submit" class="text-size">Count words</button>
+    </form>
+</div>
+
+{% endblock counter %}
+
+{% block footer %} {% include 'footer.html' %} {% endblock footer %}
+
+{% endblock content %}
+
+</body>
+</html>
